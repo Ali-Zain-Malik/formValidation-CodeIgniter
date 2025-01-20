@@ -12,22 +12,27 @@
 </head>
 
 <body>
-    <form class="container col-md-8 col-11 mt-5 border border-2 border-black py-3 rounded" action=>
+    <form class="container col-md-8 col-11 mt-5 border border-2 border-black py-3 rounded" action="/validate-form" method="post">
+        <?= csrf_field() ?>
         <div class="mb-3">
             <label for="username" class="form-label">Username</label>
-            <input type="email" class="form-control" name="username" id="username" aria-describedby="emailHelp">
+            <input type="text" class="form-control" name="username" id="username">
+            <span class="text-danger"><?= isset($validator) ? $validator->getError("username") : "" ?></span>
         </div>
         <div class="mb-3">
             <label for="email" class="form-label">Email address</label>
             <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp">
+            <span class="text-danger"><?= isset($validator) ? $validator->getError("email") : "" ?></span>
         </div>
         <div class="mb-3">
             <label for="password" class="form-label">Password</label>
             <input type="password" class="form-control" name="password" id="password">
+            <span class="text-danger"><?= isset($validator) ? $validator->getError("password") : "" ?></span>
         </div>
         <div class="mb-3">
             <label for="confirm_password" class="form-label">Confrim Password</label>
             <input type="password" class="form-control" name="confirm_password" id="confirm_password">
+            <span class="text-danger"><?= isset($validator) ? $validator->getError("confirm_password") : "" ?></span>
         </div>
         <button type="submit" class="btn btn-primary w-100">Submit</button>
     </form>
