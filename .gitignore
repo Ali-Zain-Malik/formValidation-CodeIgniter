@@ -1,0 +1,27 @@
+# Environment
+.env
+
+# Writable directory
+writable/*
+!writable/.gitkeep
+
+# Vendor
+vendor/
+
+# Node modules
+node_modules/
+
+# Generated assets
+public/assets/*
+!public/assets/.gitkeep
+
+# IDE Configs
+.idea/
+.vscode/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Composer lock (optional)
+composer.lock
